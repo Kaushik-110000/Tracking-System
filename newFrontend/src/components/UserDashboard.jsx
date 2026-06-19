@@ -21,7 +21,7 @@ function UserDashboard() {
         const res = await guardService.ListGuard();
         setGuards(res.data.data);
       } catch (err) {
-        setError("Failed to fetch guards");
+        setError("Failed to fetch trucks");
       } finally {
         setLoading(false);
       }
@@ -54,7 +54,7 @@ function UserDashboard() {
     navigate("/user/login");
   };
 
-  if (loading) return <p>Loading guards...</p>;
+  if (loading) return <p>Loading trucks...</p>;
   if (error) return <p className="text-red-500">{error}</p>;
 
   return (
@@ -65,7 +65,7 @@ function UserDashboard() {
     >
       {/* Header */}
       <div className="flex justify-between items-center mb-6 px-10">
-        <h2 className="text-3xl font-semibold">👮 Security Guards</h2>
+        <h2 className="text-3xl font-semibold">🚚 Security Trucks</h2>
         <div className="flex items-center gap-4">
           <button
             onClick={() => setDarkMode(!darkMode)}

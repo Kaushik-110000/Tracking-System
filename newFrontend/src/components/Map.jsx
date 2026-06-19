@@ -13,9 +13,9 @@ import L from "leaflet";
 import locationservice from "../backend/location.config.js";
 import guardService from "../backend/guard.config.js";
 import otherServices from "../backend/others.config.js";
-// Define custom icon for assigned guards
+// Define custom icon for assigned trucks
 const guardIcon = new L.Icon({
-  iconUrl: "/policeman.png", // Example guard icon
+  iconUrl: "/policeman.png", // Example truck icon
   iconSize: [32, 32],
   iconAnchor: [16, 32],
   popupAnchor: [0, -30],
@@ -72,7 +72,7 @@ function Map() {
         setGuards(validGuards);
         // console.log("Guards Data:", validGuards);
       })
-      .catch((error) => console.error("Error fetching guards:", error));
+      .catch((error) => console.error("Error fetching trucks:", error));
 
     guardService
       .ListAssignedGuards()
@@ -84,7 +84,7 @@ function Map() {
         }
       })
       .catch((error) => {
-        console.error("Error fetching assigned guards:", error);
+        console.error("Error fetching assigned trucks:", error);
       });
 
     otherServices.getratings().then((res) => {
@@ -119,7 +119,7 @@ function Map() {
 
   const handleFinalSubmit = () => {
     if (!selectedLocation || !selectedGuard) {
-      alert("Please select a location and a guard first.");
+      alert("Please select a location and a truck first.");
       return;
     }
 
@@ -239,7 +239,7 @@ function Map() {
             <LocationMarker
               onLocationSelect={(lat, lng) => setSelectedLocation([lat, lng])}
             />
-            {/* Assigned Guards Markers */}
+            {/* Assigned Trucks Markers */}
             {assignedGuards.map((guard) => (
               <Marker
                 key={guard.guardDetails._id}
@@ -263,11 +263,11 @@ function Map() {
         </div>
       </div>
 
-      {/* List of Guards */}
+      {/* List of Trucks */}
       <div className=" w-[40vw] flex flex-col justify-center items-center ">
         <div className="w-full max-w-md mt-4  rounded-lg shadow-lg overflow-hidden ">
           <h2 className="text-lg font-semibold mb-2 bg-amber-400">
-            🛡️ Assign Guards
+            🛡️ Assign Trucks
           </h2>
           <ul className="hover:*:hover:opacity-100 hover:*:hover:scale-105 transition-all duration-500 *:opacity-75 ">
             {guards.map((guard) => (
@@ -324,7 +324,7 @@ function Map() {
 
         <div className="w-full max-w-md my-8 rounded-lg shadow-lg overflow-hidden">
           <h2 className="text-lg font-semibold mb-2 bg-amber-400">
-            🛡️ Assigned Guards
+            🛡️ Assigned Trucks
           </h2>
           <ul className="*:flex *:justify-between *:items-center *:w-full">
             {assignedGuards.map((guard) => (

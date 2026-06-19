@@ -29,7 +29,7 @@ function ManageGuards({ darkMode }) {
       await adminservice.approveRejectGuards(id, isApproved);
       setGuards((prev) => prev.filter((g) => g._id !== id));
     } catch (error) {
-      alert("Failed to update guard status");
+      alert("Failed to update truck status");
     }
   };
 
@@ -40,7 +40,7 @@ function ManageGuards({ darkMode }) {
       }`}
     >
       <h2 className="text-3xl font-bold mb-6 text-center font-serif border-2  p-4 rounded-lg shadow-lg">
-        Manage Guards
+        Manage Trucks
       </h2>
 
       {/* Loader */}
@@ -67,7 +67,7 @@ function ManageGuards({ darkMode }) {
         >
           {guards.length === 0 ? (
             <p className="text-center text-lg font-semibold">
-              No guards found.
+              No trucks found.
             </p>
           ) : (
             <table className="w-full border-collapse shadow-lg overflow-hidden">
@@ -99,7 +99,7 @@ function ManageGuards({ darkMode }) {
                           navigate(`/complains/${e.currentTarget.id}`)
                         }
                       >
-                        {guard.isApproved ? "Approved" : "View Complains"}
+                        {guard.isApproved ? "Approved" : "View Truck Complains"}
                       </span>
                     </td>
                     <td className="p-4 text-center">

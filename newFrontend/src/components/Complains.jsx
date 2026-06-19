@@ -10,7 +10,7 @@ function Complains() {
   const navigate = useNavigate();
   useEffect(() => {
     if (!guardId) {
-      setError("Invalid Guard ID");
+      setError("Invalid Truck ID");
       setLoading(false);
       return;
     }
@@ -36,7 +36,7 @@ function Complains() {
     <div className="bg-black min-h-screen w-screen text-white flex flex-col justify-center items-center p-5">
       <div className="w-full max-w-3xl bg-gray-900 shadow-lg rounded-lg p-6">
         <h2 className="text-xl font-semibold text-center border-b border-gray-700 pb-3">
-          Guard Complaints
+          Truck Complaints
         </h2>
         {complains.length === 0 ? (
           <p className="text-gray-400 text-center mt-5">No complaints found</p>

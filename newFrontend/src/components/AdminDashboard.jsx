@@ -89,7 +89,7 @@ function AdminDashboard() {
                 onClick={() => setActiveTab("manageGuards")}
               >
                 <FiShield size={20} />
-                Manage Guards
+                Manage Trucks
               </li>
 
               <li
@@ -105,7 +105,7 @@ function AdminDashboard() {
                 onClick={() => setActiveTab("assignGuards")}
               >
                 <FiMap size={20} />
-                Assign Guards
+                Assign Trucks
               </li>
 
               <li

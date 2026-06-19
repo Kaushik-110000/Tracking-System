@@ -170,7 +170,7 @@ function Liveloc({ locationId }) {
   return (
     <div className="flex flex-col items-center w-full min-h-screen bg-gray-100 py-6">
       <h2 className="text-2xl font-semibold text-gray-700 mb-4">
-        📍 Live Location Tracker
+        📍 Live Truck Location Tracker
       </h2>
       <div className="w-3/4 h-[500px] rounded-xl overflow-hidden shadow-lg">
         <MapContainer

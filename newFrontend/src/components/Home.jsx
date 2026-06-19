@@ -29,7 +29,7 @@ const LandingPage = () => {
     {
       icon: <FiMapPin className="w-8 h-8" />,
       title: "Real-Time Location Tracking",
-      description: "Monitor guard positions with precision GPS tracking",
+      description: "Monitor truck positions with precision GPS tracking",
     },
     {
       icon: <FiClipboard className="w-8 h-8" />,
@@ -74,7 +74,7 @@ const LandingPage = () => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="text-2xl font-bold text-navy-600 dark:text-white">
-              GuardSystem
+              TruckSystem
             </div>
             <div className="hidden md:flex space-x-8">
               <button className="text-gray-600 dark:text-gray-300 hover:text-navy-600 dark:hover:text-white">
@@ -127,7 +127,7 @@ const LandingPage = () => {
             transition={{ delay: 0.2 }}
             className="text-xl md:text-2xl text-gray-200 mb-8"
           >
-            Intelligent Guard Management & Real-Time Monitoring
+            Intelligent Truck Management & Real-Time Monitoring
           </motion.p>
           <div className="flex flex-wrap justify-center gap-4">
             <button
@@ -144,7 +144,7 @@ const LandingPage = () => {
                 navigate("/guard/register");
               }}
             >
-              Guard Portal
+              Truck Portal
             </button>
             <button className="bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700 transition">
               Request Demo

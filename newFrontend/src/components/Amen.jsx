@@ -124,7 +124,7 @@ function Amen({ locationId, guardId }) {
   };
 
   const handleOut = async () => {
-    await guardService.lodgeComplaint(guardId, "The guard is outside the zone");
+    await guardService.lodgeComplaint(guardId, "The truck is outside the zone");
   };
 
   const checkInsideCircle = (lat1, lon1, lat2, lon2, radius) => {

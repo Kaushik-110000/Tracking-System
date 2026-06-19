@@ -13,20 +13,25 @@ const getCoordinates = asyncHandler(async (req, res) => {
   if (!location) {
     return res.status(400).json(new ApiError("Location is required"));
   }
-
+  var a = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}`;
+  console.log(a);
   try {
-    const response = await axios.get(
-      `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}`
-    );
+    // const response = await axios.get(
+    //   `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}`
+    // );
+    // console.log(response);
+    // if (response.data.length === 0) {
+    //   return res.status(404).json(new ApiError("Location not found"));
+    // }
 
-    if (response.data.length === 0) {
-      return res.status(404).json(new ApiError("Location not found"));
-    }
-
-    const { lat, lon } = response.data[0]; // Extract latitude and longitude
-
+    // const { lat, lon } = response.data[0]; // Extract latitude and longitude
+    const lat = 23.381045284364518,
+      lon = 85.32261942074129;
     return res.json(new ApiResponse(200, { latitude: lat, longitude: lon }));
   } catch (error) {
+    console.log("Error in coordinates");
+    console.log(error.message);
+    console.log(error.response?.data);
     return res
       .status(500)
       .json(new ApiError("Failed to retrieve coordinates", error.message));
@@ -102,7 +107,7 @@ const getALocation = asyncHandler(async (req, res) => {
 
 const getLatestAssignment = asyncHandler(async (req, res) => {
   let { guardId } = req.params;
-  
+
   // Trim guardId to remove unwanted spaces or newlines
   guardId = guardId.trim();
 
@@ -146,7 +151,13 @@ const getLatestAssignment = asyncHandler(async (req, res) => {
 
   return res
     .status(200)
-    .json(new ApiResponse(200, latestAssignment[0], "Fetched latest guard assignment"));
+    .json(
+      new ApiResponse(
+        200,
+        latestAssignment[0],
+        "Fetched latest guard assignment"
+      )
+    );
 });
 
 export {
